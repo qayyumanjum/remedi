@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar-brand img {
+            width: 50px;
+            height: 50px;
+        }
+        .navbar-nav {
+            flex-direction: row;
+        }
+        .Nav-links {
+            width: 70%;
+            justify-content: center;
+        }
+        .nav-item {
+            margin-left: 15px;
+        }
+        .dropdown-menu {
+            right: 0;
+            left: auto;
+        }
+        /* For better mobile responsiveness */
+        .navbar-toggler {
+            margin-right: 10px;
+        }
+        .btn-custom {
+            border-radius: 20px;
+            background-color: white ;
+            border: white;
+            color: #0b0b5c !important;  
+           width: 6em;
+
+        }
+
+        .btn-custom2 {
+            border-radius: 20px;
+           width: 6em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white ;
+            border: white;
+            color: #0b0b5c !important;  
+        }
+        .profile-img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .nav-button {
+            height: 2em;
+            width: 6em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <!-- Logo on the left -->
+          <a class="navbar-brand" href="#">
+            <h1>logo</h1>
+          </a>
+          
+          <!-- Toggle button for mobile view -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <!-- Navbar content -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- Centered Nav Links -->
+            <ul class="navbar-nav mx-auto Nav-links">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Testimonials</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+            </ul>
+      
+            <ul class="navbar-nav  d-flex align-items-center">
+              {%if request.session.user_id %}
+          <li class="nav-item">
+            <a class="btn btn-primary" href="{% url 'logout' %}">Sign out</a>
+          </li>
+          {%else%}
+          <li class="nav-item">
+            <a class="btn btn-outline-light me-2" href="{% url 'login' %}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-primary" href="{% url 'signup_option' %}">Sign Up</a>
+          </li>
+          {%endif%}
+    
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+</body>
+</html>
