@@ -1,0 +1,26 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/RobotoMedium.ttf');
+}
+
+
+html, body {
+height: 100%;
+width: 100%;
+/* font-family: roboto; */
+}
+
+
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  .dark-mode .navbar {
+    background-color: #1e1e1e;
+  }
