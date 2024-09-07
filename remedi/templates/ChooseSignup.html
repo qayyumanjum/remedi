@@ -1,0 +1,53 @@
+{%load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Signup</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .signup-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .signup-container h2 {
+            margin-bottom: 20px;
+        }
+        .signup-container .btn {
+            margin: 10px 0;
+            width: 100%;
+        }
+        .signup-container .already-registered {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Choose Signup</h2>
+        {% comment %} <a href="{% url 'patient_signup' %}" class="btn btn-primary">Sign up as a Patient</a>
+        <a href="{% url 'doctor_signup' %}" class="btn btn-secondary">Sign up as a Doctor</a> {% endcomment %}
+        <a href="{% url 'patient_signup' %}" class="btn btn-primary">Sign up as a Patient</a>
+        <a href="{% url 'doctor_signup' %}" class="btn btn-secondary">Sign up as a Doctor</a>
+        <div class="already-registered">
+            <a href="{% url 'login' %}">Have Already Account?</a>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

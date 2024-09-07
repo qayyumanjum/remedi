@@ -1,0 +1,1 @@
+# from .models import Qualification, Specialization, Gender, Doctor, patient
