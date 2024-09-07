@@ -1,0 +1,90 @@
+body {
+    /* background: linear-gradient(to right, #6a11cb, #2575fc); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.wrapper {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+    
+}
+
+.logo img {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-field {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form-field span {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+.form-field input {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-field input:focus {
+    border-color: #6a11cb;
+    background: #fff;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #6a11cb;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #2575fc;
+}
+
+.text-center a {
+    color: #6a11cb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.text-center a:hover {
+    color: #2575fc;
+}
+
+.card-body {
+    border-radius: 13px;
+/* background-color: rgb(194, 188, 180); */
+}
