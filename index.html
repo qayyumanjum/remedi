@@ -8,65 +8,22 @@
     <link rel="stylesheet" href="Assets/css/style.css">
 </head>
 <body>
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <!-- Logo on the left -->
-      <a class="navbar-brand" href="#">
-        <h1>logo</h1>
-      </a>
-      
-      <!-- Toggle button for mobile view -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <!-- Navbar content -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <!-- Centered Nav Links -->
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-        </ul>
-  
-        <ul class="navbar-nav ms-auto d-flex align-items-center">
-          
-  
-          <li class="nav-item">
-            <a class="btn btn-outline-light me-2" href="./Assets/Pages/Login/login.html">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-primary" href="./Assets/Pages/Signup/ChooseSignup.html">Sign Up</a>
-          </li>
-  
-          <!-- Profile Dropdown -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="rounded-circle" width="30" height="30">
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Your Profile</a></li>
-              <li><a class="dropdown-item" href="#">Sign out</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+    <div id="loader">
+        <h1>Doctor</h1>
+        <h1>Patient</h1>
+        <h1>Appointments</h1>
     </div>
-  </nav>
-  
-  <script>
-   
-  </script>
-  
-      
-      
+
+<div id="header"></div>
+<div class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1 class="animated-text">Welcome to Remedic</h1>
+        <p class="animated-text">Your one-stop solution for patient management</p>
+        <a href="Assets/Pages/Signup/ChooseSignup.html" class="btn btn-primary btn-lg">Set an Appointment</a>
+    </div>
+</div>
+
     <script src="Assets/js/vendor/jquery.js"></script>
     <script src="Assets/js/utils/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
