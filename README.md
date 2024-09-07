@@ -24,7 +24,7 @@ pip install -r requirements.txt
 - Python (Django) 
 
 **Database**:
-- MySQL / RDBMS
+- MySQL | RDBMS
 
 **Authentication and Security**:
 - Django Allauth / Flask-Security / Auth0
