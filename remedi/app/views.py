@@ -83,10 +83,8 @@ class PSignup(View):
         
         return error_message
 
-# Doctor Signup View
 class DoctorSignup(View):
     def get(self, request):
-        # Get options for qualifications, specializations, and genders
         qualifications = Qualification.objects.all()
         specializations = Specialization.objects.all()
         genders = Gender.objects.all()
@@ -104,9 +102,9 @@ class DoctorSignup(View):
         email = postData.get('email')
         password = postData.get('password')
         cnic = postData.get('cnic')
-        qualification_id = postData.get('qualification')  # ID of the qualification
-        specialization_id = postData.get('specialization')  # ID of the specialization
-        gender_id = postData.get('gender')  # ID of the gender
+        qualification_id = postData.get('qualification')
+        specialization_id = postData.get('specialization')
+        gender_id = postData.get('gender')
         
         error_message = None
         
@@ -118,36 +116,36 @@ class DoctorSignup(View):
             "cnic": cnic
         }
         
-        # Create a new Doctor instance
         doctor_instance = Doctor(
-            Name=name,
+            name=name,
             phone=phone,
             email=email,
-            password=password,
+            password=make_password(password),
             cnic=cnic,
-            Qualification_id=qualification_id,
-            Specialization_id=specialization_id,
-            Gender_id=gender_id
+            qualification_id=qualification_id,
+            specialization_id=specialization_id,
+            gender_id=gender_id
         )
         
         error_message = self.validations(doctor_instance)
         
         if not error_message:
-            doctor_instance.password = make_password(doctor_instance.password)
             doctor_instance.register()
             return redirect('login')
         else:
-            return render(request, 'Dsignup.html', {'error': error_message, 'values': values,
-                                                          'qualifications': Qualification.objects.all(),
-                                                          'specializations': Specialization.objects.all(),
-                                                          'genders': Gender.objects.all()})
+            return render(request, 'Dsignup.html', {
+                'error': error_message, 
+                'values': values,
+                'qualifications': Qualification.objects.all(),
+                'specializations': Specialization.objects.all(),
+                'genders': Gender.objects.all()
+            })
 
     def validations(self, doctor_instance):
-        # Form validations
         error_message = None
-        if not doctor_instance.Name:
+        if not doctor_instance.name:
             error_message = "Name is required!"
-        elif len(doctor_instance.Name) <= 2:
+        elif len(doctor_instance.name) <= 2:
             error_message = "Name must be longer than or equal to 2 characters!"
         elif not doctor_instance.phone:
             error_message = "Phone number is required!"
@@ -165,16 +163,15 @@ class DoctorSignup(View):
             error_message = "Password should have at least 10 characters."
         elif not doctor_instance.cnic:
             error_message = "CNIC is required!"
-        elif len(doctor_instance.cnic) != 13:
+        elif len(doctor_instance.cnic) <= 13:
             error_message = "CNIC should be exactly 13 characters."
         
         return error_message
 
-# Login View
 class Login(View):
     def get(self, request):
         return render(request, 'login.html')
-    
+
     def post(self, request):
         email = request.POST.get('email')
         password = request.POST.get('password')
@@ -196,7 +193,7 @@ class Login(View):
             if check_password(password, user.password):
                 request.session['user_id'] = user.id
                 request.session['user_email'] = user.email
-                return redirect('homepage')
+                return redirect('homepage')  # Ensure 'homepage' is the correct URL name for your home page
             else:
                 error_message = "Invalid email or password"
         else:

@@ -32,15 +32,17 @@ class Gender(models.Model):
     def get_all_products():
         return Gender.objects.all()
 
+
 class Doctor(models.Model):
-    Name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
     phone = models.CharField(max_length=20)
     email = models.EmailField()
-    password = models.CharField(max_length=30)
+    password = models.CharField(max_length=128)  # Ensure this length is sufficient
     cnic = models.CharField(max_length=20)
-    Qualification = models.ForeignKey("Qualification", on_delete=models.CASCADE, default=1)
-    Specialization = models.ForeignKey("Specialization", on_delete=models.CASCADE, default=1)
-    Gender = models.ForeignKey("Gender", on_delete=models.CASCADE, default=1)
+    qualification = models.ForeignKey("Qualification", on_delete=models.CASCADE, default=1)
+    specialization = models.ForeignKey("Specialization", on_delete=models.CASCADE, default=1)
+    gender = models.ForeignKey("Gender", on_delete=models.CASCADE, default=1)
+
     
     
     
@@ -67,7 +69,7 @@ class patient(models.Model):
     Name = models.CharField(max_length=50)
     phone = models.CharField(max_length=20)
     email = models.EmailField()
-    password = models.CharField(max_length=30)
+    password = models.CharField(max_length=128)
     Gender = models.ForeignKey("Gender", on_delete=models.CASCADE, default=1)
     
     
