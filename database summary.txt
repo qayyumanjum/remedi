@@ -1,0 +1,105 @@
+Remedic is designed to handle multiple facets of patient and healthcare provider data securely and efficiently. The database architecture needs to be highly structured, secure, and scalable to accommodate patient data, medical history, appointments, and billing information.
+
+1. Database Type:
+RDBMS (Relational Database Management System) like MySQL, PostgreSQL, or a NoSQL database like MongoDB, depending on the scalability requirements and structured/unstructured data handling.
+2. Key Tables & Their Fields:
+Here’s an outline of the essential tables that you would typically include:
+
+Users Table:
+
+Stores information for patients, doctors, and admins.
+Fields:
+user_id (Primary Key)
+username, password (hashed and encrypted), email (Unique)
+role (Enum: patient, doctor, admin)
+multi_factor_enabled (Boolean for MFA)
+Doctors Table:
+
+Contains doctor-specific details, linked to the users table.
+Fields:
+doctor_id (Primary Key)
+user_id (Foreign Key from Users table)
+specialization
+years_of_experience
+available_slots (for appointment booking)
+Patients Table:
+
+Contains patient-specific information.
+Fields:
+patient_id (Primary Key)
+user_id (Foreign Key from Users table)
+medical_history (Encrypted field)
+contact_number
+address
+Appointments Table:
+
+Manages appointments between patients and doctors.
+Fields:
+appointment_id (Primary Key)
+patient_id (Foreign Key from Patients table)
+doctor_id (Foreign Key from Doctors table)
+appointment_date, appointment_time
+status (Enum: pending, confirmed, canceled)
+Medical Records Table:
+
+Contains patient medical records, securely stored and encrypted.
+
+Fields:
+record_id (Primary Key)
+patient_id (Foreign Key from Patients table)
+doctor_id (Foreign Key from Doctors table)
+diagnosis, prescriptions (Encrypted)
+medical_images (For storing paths to uploaded images)
+
+Billing Table:
+
+Tracks patient billing and payments.
+
+Fields:
+invoice_id (Primary Key)
+patient_id (Foreign Key from Patients table)
+amount, payment_status
+payment_method (e.g., Stripe, Razorpay)
+invoice_date, due_date
+Notifications Table:
+
+For managing system notifications.
+
+Fields:
+notification_id (Primary Key)
+user_id (Foreign Key from Users table)
+message, status (read/unread)
+created_at
+Languages Table (Optional for Multilingual Support):
+
+Supports English and Urdu translations.
+
+Fields:
+translation_id (Primary Key)
+field_name (Field being translated)
+english_text, urdu_text
+
+3. Encryption:
+Sensitive fields like medical history, patient records, and passwords must be encrypted.
+Encryption is handled on the backend, using Python’s cryptography library for data at rest and HTTPS for secure transmission.
+
+4. Relationships:
+One-to-Many:
+One doctor can have many patients.
+One patient can book many appointments.
+Many-to-One:
+Many appointments link to one doctor and one patient.
+Many-to-Many (Optional):
+A patient may have multiple doctors and vice versa.
+
+5. Indexes and Optimization:
+Index key fields like user_id, appointment_date, and invoice_id for faster retrieval of data.
+Use partitioning for large tables like medical records and appointments.
+
+6. Data Security and Privacy:
+Encryption: All sensitive fields like passwords, medical_history, and prescriptions should be encrypted using AES encryption.
+Access Control: Roles-based access ensures only authorized users (e.g., doctors, admins) can view or edit specific records.
+
+7. Backup and Recovery:
+Automated backup systems should be implemented to prevent data loss, ensuring quick recovery in case of any failure.
+By following this structure, the database will be efficient, secure, and scalable, providing a strong foundation for the web-based Patient Management System.
