@@ -27,11 +27,10 @@ pip install -r requirements.txt
 - MySQL | RDBMS
 
 **Authentication and Security**:
-- Django Allauth / Flask-Security / Auth0
-- PyCryptodome / bcrypt for data encryption
+- Django | Cryptography
 
 **Payment Gateway**:
-- Stripe / Razorpay
+- Stripe 
 
 **Cloud Services** (Optional):
-- AWS (for hosting, AWS Key Management Service for encryption)
+- Not Used.
