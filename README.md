@@ -12,7 +12,7 @@ Remedic is a web-based platform designed to manage patient data, appointments, m
 ## Installation
 ### Clone the repository
 ```bash
-git clone https://github.com/qayyumanjum/remedic.git
+git clone https://github.com/qayyumanjum/remedi.git
 ```
 
 ### Technology Stack
